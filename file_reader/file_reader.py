@@ -72,23 +72,27 @@ def printout(dict):
         print(f"{key}: {dict[key]}")
 
 
-'''Main program'''
-# Asks the user for the names of the 2 files, without the file extension.
-file1_name = input("Enter the name of the first file (without the file extension): ")
-file2_name = input("Enter the name of the second file (without the file extension): ")
+def main():
+    # Asks the user for the names of the 2 files, without the file extension.
+    file1_name = input("Enter the name of the first file (without the file extension): ")
+    file2_name = input("Enter the name of the second file (without the file extension): ")
+    
+    # Gets lists of each individual word in the files using the word_list_maker() function.
+    file1_words = word_list_maker(file1_name)
+    file2_words = word_list_maker(file2_name)
+    
+    # Finds the shared words in each list
+    shared_words = compare_words(file1_words, file2_words)
+    
+    # Finds the Frequency of the shared words, saves as a dictionary
+    word_frequency = frequency_finder(file1_words, file2_words, shared_words)
+    
+    # Sort the dict by value.
+    final_frequency = sort_dict(word_frequency)
+    
+    # Print the sorted dict
+    printout(final_frequency)
 
-# Gets lists of each individual word in the files using the word_list_maker() function.
-file1_words = word_list_maker(file1_name)
-file2_words = word_list_maker(file2_name)
 
-# Finds the shared words in each list
-shared_words = compare_words(file1_words, file2_words)
-
-# Finds the Frequency of the shared words, saves as a dictionary
-word_frequency = frequency_finder(file1_words, file2_words, shared_words)
-
-# Sort the dict by value.
-final_frequency = sort_dict(word_frequency)
-
-# Print the sorted dict
-printout(final_frequency)
+if __name__=="__main__":
+    main()
