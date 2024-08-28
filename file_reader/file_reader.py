@@ -71,8 +71,8 @@ def printout(dict):
     for key in dict.keys():
         print(f"{key}: {dict[key]}")
 
-
 def main():
+    '''The main program'''
     # Asks the user for the names of the 2 files, without the file extension.
     file1_name = input("Enter the name of the first file (without the file extension): ")
     file2_name = input("Enter the name of the second file (without the file extension): ")
@@ -94,5 +94,5 @@ def main():
     printout(final_frequency)
 
 
-if __name__=="__main__":
+if __name__== "__main__":
     main()
