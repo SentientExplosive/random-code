@@ -10,7 +10,8 @@ endFileName = [2025,11,25,1]    # Year, Month, Day, lognum (1 or 2) of last log 
 logFileExtension = ".log"
 outputFiles = []
 
-keywords = ["hello"]
+keywords = ["FengardTheGreat", "FengardTheGreat buy", "FengardTheGreat sell", "/pay FengardTheGreat", "FengardTheGreat issued server command: /pay", "hello"]
+# keywords = ["hello"]
 
 def main():
     running = True
@@ -19,6 +20,7 @@ def main():
     try:
         for i in range(len(keywords)):
             file = open(f"{outputFileName}{i}{outputFileExtension}", "w+", encoding='utf8')
+            print(f"Keyword: '{keywords[i]}'", file=file)
             outputFiles.append(file)
     except:
         print("Couldn't load output files")
